@@ -23,9 +23,9 @@ logViewer="vi"
 #logViewer="cat"
 #logViewer="more"
 
-##                 ##
-# DISCORD BOTS INFO #
-##                 ##
+##        ##
+# BOT INFO #
+##        ##
 
 #Moogle-Bot
 botName1='MoogleBot'
@@ -44,8 +44,8 @@ botLogFile1='/home/MoogleBot/mooglebot/logs.txt'
 ##           ##
 
 #Offsite Server
-server1Name="CHANGE THIS"
-server1Login="CHANGE THIS"
+server1Name=""
+server1Login=""
 
 #ExampleServer
 #server2Name=Example-Server
@@ -100,7 +100,7 @@ function bot_choice
     --backtitle "Panda Helper | Will Connect To: $serverName" \
     --title "[Bot Choice]" \
     --nocancel \
-    --menu "Select Discord Bot:" 15 40 2 \
+    --menu "Select Bot:" 15 40 2 \
     1 "$botName1" \
     2 "Return to Main Menu")
     #2 "Example-Bot" \ #Make sure you put it before Quit Program, with a different number, and add 1 to the number after 15 40
@@ -280,7 +280,7 @@ function reboot_bot
 
     if [ $serverChoice != 'NULL' ]
     then
-        ssh $serverChoice "$killCommand; $startCommand"
+        ssh -n $serverChoice "$killCommand; $startCommand"
     else
        sudo "$killCommand; $startCommand"
     fi
